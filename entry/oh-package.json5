@@ -1,0 +1,15 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "libohos_app_cangjie_entry.so": "file:src/main/cangjie/types/libohos_app_cangjie_entry",
+    "@cangjie/cjhybridcomponent": "1.0.0",
+    "libentry.so": "file:./src/main/cpp/types/libentry",
+    "libemoji_frames.so": "file:./src/main/cpp/types/libemoji_frames",
+    "libtg_media.so": "file:./src/main/cpp/types/libtg_media"
+  }
+}

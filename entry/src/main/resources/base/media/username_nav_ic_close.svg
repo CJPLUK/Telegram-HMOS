@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+  <!-- diag-suite_settings_root-TC-0081-round3.md F-3 (same rationale as
+       username_nav_ic_done.svg): fill-type outline replacing fill="none" stroke.
+       Two independent capsule polygons (no shared vertex, so no join circle needed),
+       one per diagonal, radius 1.1 = stroke-width/2. -->
+  <path fill="#000000" d="M4.722,6.278 L17.722,19.278 A1.1,1.1 0 0 0 19.278,17.722 L6.278,4.722 A1.1,1.1 0 0 0 4.722,6.278 Z M17.722,4.722 L4.722,17.722 A1.1,1.1 0 0 0 6.278,19.278 L19.278,6.278 A1.1,1.1 0 0 0 17.722,4.722 Z"/>
+</svg>

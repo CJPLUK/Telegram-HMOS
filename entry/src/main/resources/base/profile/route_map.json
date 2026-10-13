@@ -1,0 +1,989 @@
+{
+  "routerMap": [
+    {
+      "name": "AppRoot",
+      "pageSourceFile": "src/main/ets/pages/AppRoot.ets",
+      "buildFunction": "appRootBuilder"
+    },
+    {
+      "name": "RecentSessionScreen",
+      "pageSourceFile": "src/main/ets/pages/RecentSessionScreen.ets",
+      "buildFunction": "recentSessionScreenBuilder"
+    },
+    {
+      "name": "SplashPage",
+      "pageSourceFile": "src/main/ets/pages/SplashPage.ets",
+      "buildFunction": "splashPageBuilder"
+    },
+    {
+      "name": "DemoA",
+      "pageSourceFile": "src/main/ets/pages/DemoA.ets",
+      "buildFunction": "demoABuilder"
+    },
+    {
+      "name": "DemoB",
+      "pageSourceFile": "src/main/ets/pages/DemoB.ets",
+      "buildFunction": "demoBBuilder"
+    },
+    {
+      "name": "ComposePollScreen",
+      "pageSourceFile": "src/main/ets/pages/ComposePollScreen.ets",
+      "buildFunction": "composePollScreenBuilder"
+    },
+    {
+      "name": "LanguageLinkPreviewPage",
+      "pageSourceFile": "src/main/ets/pages/LanguageLinkPreviewPage.ets",
+      "buildFunction": "languageLinkPreviewPageBuilder"
+    },
+    {
+      "name": "PermissionPage",
+      "pageSourceFile": "src/main/ets/pages/PermissionPage.ets",
+      "buildFunction": "permissionPageBuilder"
+    },
+    {
+      "name": "BrowserBookmarksScreen",
+      "pageSourceFile": "src/main/ets/pages/BrowserBookmarksScreen.ets",
+      "buildFunction": "browserBookmarksScreenBuilder"
+    },
+    {
+      "name": "BrowserHistoryScreen",
+      "pageSourceFile": "src/main/ets/pages/BrowserHistoryScreen.ets",
+      "buildFunction": "browserHistoryScreenBuilder"
+    },
+    {
+      "name": "AdInfoScreen",
+      "pageSourceFile": "src/main/ets/pages/AdInfoScreen.ets",
+      "buildFunction": "adInfoScreenBuilder"
+    },
+    {
+      "name": "AddContactPage",
+      "pageSourceFile": "src/main/ets/pages/AddContactPage.ets",
+      "buildFunction": "addContactPageBuilder"
+    },
+    {
+      "name": "AdminManagePage",
+      "pageSourceFile": "src/main/ets/pages/AdminManagePage.ets",
+      "buildFunction": "adminManagePageBuilder"
+    },
+    {
+      "name": "AppLockPage",
+      "pageSourceFile": "src/main/ets/pages/AppLockPage.ets",
+      "buildFunction": "appLockPageBuilder"
+    },
+    {
+      "name": "AppearanceSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/AppearanceSettingsPage.ets",
+      "buildFunction": "appearanceSettingsPageBuilder"
+    },
+    {
+      "name": "AutodownloadConnectionTypePage",
+      "pageSourceFile": "src/main/ets/pages/AutodownloadConnectionTypePage.ets",
+      "buildFunction": "autodownloadConnectionTypePageBuilder"
+    },
+    {
+      "name": "AutodownloadMediaCategoryPage",
+      "pageSourceFile": "src/main/ets/pages/AutodownloadMediaCategoryPage.ets",
+      "buildFunction": "autodownloadMediaCategoryPageBuilder"
+    },
+    {
+      "name": "AutoNightSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/AutoNightSettingsPage.ets",
+      "buildFunction": "autoNightSettingsPageBuilder"
+    },
+    {
+      "name": "AvatarGalleryPagePresentationArguments",
+      "pageSourceFile": "src/main/ets/pages/AvatarGalleryPagePresentationArguments.ets",
+      "buildFunction": "avatarGalleryPagePresentationArgumentsBuilder"
+    },
+    {
+      "name": "GroupPermissionsPage",
+      "pageSourceFile": "src/main/ets/pages/GroupPermissionsPage.ets",
+      "buildFunction": "groupPermissionsPageBuilder"
+    },
+    {
+      "name": "BlacklistPage",
+      "pageSourceFile": "src/main/ets/pages/BlacklistPage.ets",
+      "buildFunction": "blacklistPageBuilder"
+    },
+    {
+      "name": "BoostApplyConfirmPage",
+      "pageSourceFile": "src/main/ets/pages/BoostApplyConfirmPage.ets",
+      "buildFunction": "boostApplyConfirmPageBuilder"
+    },
+    {
+      "name": "BoostStatsPage",
+      "pageSourceFile": "src/main/ets/pages/BoostStatsPage.ets",
+      "buildFunction": "boostStatsPageBuilder"
+    },
+    {
+      "name": "BotPaymentsPage",
+      "pageSourceFile": "src/main/ets/pages/BotPaymentsPage.ets",
+      "buildFunction": "botPaymentsPageBuilder"
+    },
+    {
+      "name": "BrowserScreen",
+      "pageSourceFile": "src/main/ets/pages/BrowserScreen.ets",
+      "buildFunction": "browserScreenBuilder"
+    },
+    {
+      "name": "CalendarMessageScreen",
+      "pageSourceFile": "src/main/ets/pages/CalendarMessageScreen.ets",
+      "buildFunction": "calendarMessageScreenBuilder"
+    },
+    {
+      "name": "CallHistoryPage",
+      "pageSourceFile": "src/main/ets/pages/CallHistoryPage.ets",
+      "buildFunction": "callHistoryPageBuilder"
+    },
+    {
+      "name": "CallRatingPage",
+      "pageSourceFile": "src/main/ets/pages/CallRatingPage.ets",
+      "buildFunction": "callRatingPageBuilder"
+    },
+    {
+      "name": "CallScreen",
+      "pageSourceFile": "src/main/ets/pages/CallScreen.ets",
+      "buildFunction": "callScreenBuilder"
+    },
+    {
+      "name": "CameraPage",
+      "pageSourceFile": "src/main/ets/pages/CameraPage.ets",
+      "buildFunction": "cameraPageBuilder"
+    },
+    {
+      "name": "ChangePhoneIntroPage",
+      "pageSourceFile": "src/main/ets/pages/ChangePhoneIntroPage.ets",
+      "buildFunction": "changePhoneIntroPageBuilder"
+    },
+    {
+      "name": "ChangePhonePage",
+      "pageSourceFile": "src/main/ets/pages/ChangePhonePage.ets",
+      "buildFunction": "changePhonePageBuilder"
+    },
+    {
+      "name": "ChannelRevenueStatsPage",
+      "pageSourceFile": "src/main/ets/pages/ChannelRevenueStatsPage.ets",
+      "buildFunction": "channelRevenueStatsPageBuilder"
+    },
+    {
+      "name": "ChatFolderEditorPage",
+      "pageSourceFile": "src/main/ets/pages/ChatFolderEditorPage.ets",
+      "buildFunction": "chatFolderEditorPageBuilder"
+    },
+    {
+      "name": "ComposePage",
+      "pageSourceFile": "src/main/ets/pages/ComposePage.ets",
+      "buildFunction": "composePageBuilder"
+    },
+    {
+      "name": "ChatFolderPeerSelectionPage",
+      "pageSourceFile": "src/main/ets/pages/ChatFolderPeerSelectionPage.ets",
+      "buildFunction": "chatFolderPeerSelectionPageBuilder"
+    },
+    {
+      "name": "ChatFolderInviteLinkPage",
+      "pageSourceFile": "src/main/ets/pages/ChatFolderInviteLinkPage.ets",
+      "buildFunction": "chatFolderInviteLinkPageBuilder"
+    },
+    {
+      "name": "ChatFoldersPage",
+      "pageSourceFile": "src/main/ets/pages/ChatFoldersPage.ets",
+      "buildFunction": "chatFoldersPageBuilder"
+    },
+    {
+      "name": "ChatFolderEditPage",
+      "pageSourceFile": "src/main/ets/pages/ChatFolderEditPage.ets",
+      "buildFunction": "chatFolderEditPageBuilder"
+    },
+    {
+      "name": "ChatImportActivityScreen",
+      "pageSourceFile": "src/main/ets/pages/ChatImportActivityScreen.ets",
+      "buildFunction": "chatImportActivityScreenBuilder"
+    },
+    {
+      "name": "ChatImportPeerSelectScreen",
+      "pageSourceFile": "src/main/ets/pages/ChatImportPeerSelectScreen.ets",
+      "buildFunction": "chatImportPeerSelectScreenBuilder"
+    },
+    {
+      "name": "ColorPickerScreen",
+      "pageSourceFile": "src/main/ets/pages/ColorPickerScreen.ets",
+      "buildFunction": "colorPickerScreenBuilder"
+    },
+    {
+      "name": "ContactListPage",
+      "pageSourceFile": "src/main/ets/pages/ContactListPage.ets",
+      "buildFunction": "contactListPageBuilder"
+    },
+    {
+      "name": "CreateChannelPage",
+      "pageSourceFile": "src/main/ets/pages/CreateChannelPage.ets",
+      "buildFunction": "createChannelPageBuilder"
+    },
+    {
+      "name": "CreateGroupPage",
+      "pageSourceFile": "src/main/ets/pages/CreateGroupPage.ets",
+      "buildFunction": "createGroupPageBuilder"
+    },
+    {
+      "name": "CropEditorScreen",
+      "pageSourceFile": "src/main/ets/pages/CropEditorScreen.ets",
+      "buildFunction": "cropEditorScreenBuilder"
+    },
+    {
+      "name": "DataPrivacySettingsPage",
+      "pageSourceFile": "src/main/ets/pages/DataPrivacySettingsPage.ets",
+      "buildFunction": "dataPrivacySettingsPageBuilder"
+    },
+    {
+      "name": "DataStorageSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/DataStorageSettingsPage.ets",
+      "buildFunction": "dataStorageSettingsPageBuilder"
+    },
+    {
+      "name": "DebugSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/DebugSettingsPage.ets",
+      "buildFunction": "debugSettingsPageBuilder"
+    },
+    {
+      "name": "DevicesPage",
+      "pageSourceFile": "src/main/ets/pages/DevicesPage.ets",
+      "buildFunction": "devicesPageBuilder"
+    },
+    {
+      "name": "DrawingScreen",
+      "pageSourceFile": "src/main/ets/pages/DrawingScreen.ets",
+      "buildFunction": "drawingScreenBuilder"
+    },
+    {
+      "name": "EditProfilePage",
+      "pageSourceFile": "src/main/ets/pages/EditProfilePage.ets",
+      "buildFunction": "editProfilePageBuilder"
+    },
+    {
+      "name": "ChatAutomationPage",
+      "pageSourceFile": "src/main/ets/pages/ChatAutomationPage.ets",
+      "buildFunction": "chatAutomationPageBuilder"
+    },
+    {
+      "name": "ProfileColorPage",
+      "pageSourceFile": "src/main/ets/pages/ProfileColorPage.ets",
+      "buildFunction": "profileColorPageBuilder"
+    },
+    {
+      "name": "AvatarGalleryPage",
+      "pageSourceFile": "src/main/ets/pages/AvatarGalleryPage.ets",
+      "buildFunction": "avatarGalleryPageBuilder"
+    },
+    {
+      "name": "EmojiStatusPickerPage",
+      "pageSourceFile": "src/main/ets/pages/EmojiStatusPickerPage.ets",
+      "buildFunction": "emojiStatusPickerPageBuilder"
+    },
+    {
+      "name": "ArchivedStickerPacksPage",
+      "pageSourceFile": "src/main/ets/pages/ArchivedStickerPacksPage.ets",
+      "buildFunction": "archivedStickerPacksPageBuilder"
+    },
+    {
+      "name": "EmojiStickerPacksPage",
+      "pageSourceFile": "src/main/ets/pages/EmojiStickerPacksPage.ets",
+      "buildFunction": "emojiStickerPacksPageBuilder"
+    },
+    {
+      "name": "QuickReactionSetupPage",
+      "pageSourceFile": "src/main/ets/pages/QuickReactionSetupPage.ets",
+      "buildFunction": "quickReactionSetupPageBuilder"
+    },
+    {
+      "name": "FeaturedStickersScreen",
+      "pageSourceFile": "src/main/ets/pages/FeaturedStickersScreen.ets",
+      "buildFunction": "featuredStickersScreenBuilder"
+    },
+    {
+      "name": "GalleryPage",
+      "pageSourceFile": "src/main/ets/pages/GalleryPage.ets",
+      "buildFunction": "galleryPageBuilder"
+    },
+    {
+      "name": "GamePage",
+      "pageSourceFile": "src/main/ets/pages/GamePage.ets",
+      "buildFunction": "gamePageBuilder"
+    },
+    {
+      "name": "GiveawaySetupPage",
+      "pageSourceFile": "src/main/ets/pages/GiveawaySetupPage.ets",
+      "buildFunction": "giveawaySetupPageBuilder"
+    },
+    {
+      "name": "GroupCallScreen",
+      "pageSourceFile": "src/main/ets/pages/GroupCallScreen.ets",
+      "buildFunction": "groupCallScreenBuilder"
+    },
+    {
+      "name": "GroupDetailsPage",
+      "pageSourceFile": "src/main/ets/pages/GroupDetailsPage.ets",
+      "buildFunction": "groupDetailsPageBuilder"
+    },
+    {
+      "name": "CustomStickerEditorPage",
+      "pageSourceFile": "src/main/ets/pages/CustomStickerEditorPage.ets",
+      "buildFunction": "customStickerEditorPageBuilder"
+    },
+    {
+      "name": "GroupMembersPage",
+      "pageSourceFile": "src/main/ets/pages/GroupMembersPage.ets",
+      "buildFunction": "groupMembersPageBuilder"
+    },
+    {
+      "name": "ImportStickerPackPage",
+      "pageSourceFile": "src/main/ets/pages/ImportStickerPackPage.ets",
+      "buildFunction": "importStickerPackPageBuilder"
+    },
+    {
+      "name": "IncomingCallFullscreenPage",
+      "pageSourceFile": "src/main/ets/pages/IncomingCallFullscreenPage.ets",
+      "buildFunction": "incomingCallFullscreenPageBuilder"
+    },
+    {
+      "name": "IncomingMessagePrivacyPage",
+      "pageSourceFile": "src/main/ets/pages/IncomingMessagePrivacyPage.ets",
+      "buildFunction": "incomingMessagePrivacyPageBuilder"
+    },
+    {
+      "name": "InstantPagePage",
+      "pageSourceFile": "src/main/ets/pages/InstantPagePage.ets",
+      "buildFunction": "instantPagePageBuilder"
+    },
+    {
+      "name": "InstantPageReferencePage",
+      "pageSourceFile": "src/main/ets/pages/InstantPageReferencePage.ets",
+      "buildFunction": "instantPageReferencePageBuilder"
+    },
+    {
+      "name": "InstantPageSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/InstantPageSettingsPage.ets",
+      "buildFunction": "instantPageSettingsPageBuilder"
+    },
+    {
+      "name": "InviteContactsPage",
+      "pageSourceFile": "src/main/ets/pages/InviteContactsPage.ets",
+      "buildFunction": "inviteContactsPageBuilder"
+    },
+    {
+      "name": "InviteLinkPage",
+      "pageSourceFile": "src/main/ets/pages/InviteLinkPage.ets",
+      "buildFunction": "inviteLinkPageBuilder"
+    },
+    {
+      "name": "InviteLinksPage",
+      "pageSourceFile": "src/main/ets/pages/InviteLinksPage.ets",
+      "buildFunction": "inviteLinksPageBuilder"
+    },
+    {
+      "name": "JoinApprovalPage",
+      "pageSourceFile": "src/main/ets/pages/JoinApprovalPage.ets",
+      "buildFunction": "joinApprovalPageBuilder"
+    },
+    {
+      "name": "LanguageSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/LanguageSettingsPage.ets",
+      "buildFunction": "languageSettingsPageBuilder"
+    },
+    {
+      "name": "DoNotTranslateLanguagesPage",
+      "pageSourceFile": "src/main/ets/pages/DoNotTranslateLanguagesPage.ets",
+      "buildFunction": "doNotTranslateLanguagesPageBuilder"
+    },
+    {
+      "name": "LegacyDataImportPage",
+      "pageSourceFile": "src/main/ets/pages/LegacyDataImportPage.ets",
+      "buildFunction": "legacyDataImportPageBuilder"
+    },
+    {
+      "name": "LegacyICloudFilePage",
+      "pageSourceFile": "src/main/ets/pages/LegacyICloudFilePage.ets",
+      "buildFunction": "legacyICloudFilePageBuilder"
+    },
+    {
+      "name": "LivestreamViewerPage",
+      "pageSourceFile": "src/main/ets/pages/LivestreamViewerPage.ets",
+      "buildFunction": "livestreamViewerPageBuilder"
+    },
+    {
+      "name": "MaskStickerPanelPage",
+      "pageSourceFile": "src/main/ets/pages/MaskStickerPanelPage.ets",
+      "buildFunction": "maskStickerPanelPageBuilder"
+    },
+    {
+      "name": "MediaEditorScreen",
+      "pageSourceFile": "src/main/ets/pages/MediaEditorScreen.ets",
+      "buildFunction": "mediaEditorScreenBuilder"
+    },
+    {
+      "name": "MediaGroupsScreen",
+      "pageSourceFile": "src/main/ets/pages/MediaGroupsScreen.ets",
+      "buildFunction": "mediaGroupsScreenBuilder"
+    },
+    {
+      "name": "MediaPickerScreen",
+      "pageSourceFile": "src/main/ets/pages/MediaPickerScreen.ets",
+      "buildFunction": "mediaPickerScreenBuilder"
+    },
+    {
+      "name": "MessageStatsScreen",
+      "pageSourceFile": "src/main/ets/pages/MessageStatsScreen.ets",
+      "buildFunction": "messageStatsScreenBuilder"
+    },
+    {
+      "name": "NotificationSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/NotificationSettingsPage.ets",
+      "buildFunction": "notificationSettingsPageBuilder"
+    },
+    {
+      "name": "NotificationSoundSelectionPage",
+      "pageSourceFile": "src/main/ets/pages/NotificationSoundSelectionPage.ets",
+      "buildFunction": "notificationSoundSelectionPageBuilder"
+    },
+    {
+      "name": "NotificationsPeerCategoryPage",
+      "pageSourceFile": "src/main/ets/pages/NotificationsPeerCategoryPage.ets",
+      "buildFunction": "notificationsPeerCategoryPageBuilder"
+    },
+    {
+      "name": "PassportAddressDocumentPage",
+      "pageSourceFile": "src/main/ets/pages/PassportAddressDocumentPage.ets",
+      "buildFunction": "passportAddressDocumentPageBuilder"
+    },
+    {
+      "name": "PassportDocumentPage",
+      "pageSourceFile": "src/main/ets/pages/PassportDocumentPage.ets",
+      "buildFunction": "passportDocumentPageBuilder"
+    },
+    {
+      "name": "PassportDocumentCameraPage",
+      "pageSourceFile": "src/main/ets/pages/PassportDocumentCameraPage.ets",
+      "buildFunction": "passportDocumentCameraPageBuilder"
+    },
+    {
+      "name": "PassportDocumentGalleryPage",
+      "pageSourceFile": "src/main/ets/pages/PassportDocumentGalleryPage.ets",
+      "buildFunction": "passportDocumentGalleryPageBuilder"
+    },
+    {
+      "name": "PassportEmailVerifyPage",
+      "pageSourceFile": "src/main/ets/pages/PassportEmailVerifyPage.ets",
+      "buildFunction": "passportEmailVerifyPageBuilder"
+    },
+    {
+      "name": "PassportKeyFingerprintPage",
+      "pageSourceFile": "src/main/ets/pages/PassportKeyFingerprintPage.ets",
+      "buildFunction": "passportKeyFingerprintPageBuilder"
+    },
+    {
+      "name": "PassportPage",
+      "pageSourceFile": "src/main/ets/pages/PassportPage.ets",
+      "buildFunction": "passportPageBuilder"
+    },
+    {
+      "name": "PassportSelfManagePage",
+      "pageSourceFile": "src/main/ets/pages/PassportSelfManagePage.ets",
+      "buildFunction": "passportSelfManagePageBuilder"
+    },
+    {
+      "name": "PassportDocumentDetailPage",
+      "pageSourceFile": "src/main/ets/pages/PassportDocumentDetailPage.ets",
+      "buildFunction": "passportDocumentDetailPageBuilder"
+    },
+    {
+      "name": "PassportPasswordUnlockPage",
+      "pageSourceFile": "src/main/ets/pages/PassportPasswordUnlockPage.ets",
+      "buildFunction": "passportPasswordUnlockPageBuilder"
+    },
+    {
+      "name": "PassportPersonalDetailsPage",
+      "pageSourceFile": "src/main/ets/pages/PassportPersonalDetailsPage.ets",
+      "buildFunction": "passportPersonalDetailsPageBuilder"
+    },
+    {
+      "name": "PassportPhoneVerifyPage",
+      "pageSourceFile": "src/main/ets/pages/PassportPhoneVerifyPage.ets",
+      "buildFunction": "passportPhoneVerifyPageBuilder"
+    },
+    {
+      "name": "PaymentCardEntryScreen",
+      "pageSourceFile": "src/main/ets/pages/PaymentCardEntryScreen.ets",
+      "buildFunction": "paymentCardEntryScreenBuilder"
+    },
+    {
+      "name": "PaymentMethodPage",
+      "pageSourceFile": "src/main/ets/pages/PaymentMethodPage.ets",
+      "buildFunction": "paymentMethodPageBuilder"
+    },
+    {
+      "name": "PeersNearbyPage",
+      "pageSourceFile": "src/main/ets/pages/PeersNearbyPage.ets",
+      "buildFunction": "peersNearbyPageBuilder"
+    },
+    {
+      "name": "PowerSavingSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/PowerSavingSettingsPage.ets",
+      "buildFunction": "powerSavingSettingsPageBuilder"
+    },
+    {
+      "name": "PremiumBusinessPage",
+      "pageSourceFile": "src/main/ets/pages/PremiumBusinessPage.ets",
+      "buildFunction": "premiumBusinessPageBuilder"
+    },
+    {
+      "name": "StarsPage",
+      "pageSourceFile": "src/main/ets/pages/StarsPage.ets",
+      "buildFunction": "starsPageBuilder"
+    },
+    {
+      "name": "PremiumDemoPage",
+      "pageSourceFile": "src/main/ets/pages/PremiumDemoPage.ets",
+      "buildFunction": "premiumDemoPageBuilder"
+    },
+    {
+      "name": "PremiumGiftPage",
+      "pageSourceFile": "src/main/ets/pages/PremiumGiftPage.ets",
+      "buildFunction": "premiumGiftPageBuilder"
+    },
+    {
+      "name": "GiftStorePage",
+      "pageSourceFile": "src/main/ets/pages/GiftStorePage.ets",
+      "buildFunction": "giftStorePageBuilder"
+    },
+    {
+      "name": "PremiumLimitUpsellPage",
+      "pageSourceFile": "src/main/ets/pages/PremiumLimitUpsellPage.ets",
+      "buildFunction": "premiumLimitUpsellPageBuilder"
+    },
+    {
+      "name": "PremiumPage",
+      "pageSourceFile": "src/main/ets/pages/PremiumPage.ets",
+      "buildFunction": "premiumPageBuilder"
+    },
+    {
+      "name": "PremiumTermsPage",
+      "pageSourceFile": "src/main/ets/pages/PremiumTermsPage.ets",
+      "buildFunction": "premiumTermsPageBuilder"
+    },
+    {
+      "name": "PrivacySettingsPage",
+      "pageSourceFile": "src/main/ets/pages/PrivacySettingsPage.ets",
+      "buildFunction": "privacySettingsPageBuilder"
+    },
+    {
+      "name": "ProxySettingsPage",
+      "pageSourceFile": "src/main/ets/pages/ProxySettingsPage.ets",
+      "buildFunction": "proxySettingsPageBuilder"
+    },
+    {
+      "name": "QrLoginPage",
+      "pageSourceFile": "src/main/ets/pages/QrLoginPage.ets",
+      "buildFunction": "qrLoginPageBuilder"
+    },
+    {
+      "name": "RMIntroPage",
+      "pageSourceFile": "src/main/ets/pages/RMIntroPage.ets",
+      "buildFunction": "rMIntroPageBuilder"
+    },
+    {
+      "name": "SavedMessagesPage",
+      "pageSourceFile": "src/main/ets/pages/SavedMessagesPage.ets",
+      "buildFunction": "savedMessagesPageBuilder"
+    },
+    {
+      "name": "ScheduleVoiceChatPage",
+      "pageSourceFile": "src/main/ets/pages/ScheduleVoiceChatPage.ets",
+      "buildFunction": "scheduleVoiceChatPageBuilder"
+    },
+    {
+      "name": "SecretMediaPreviewPage",
+      "pageSourceFile": "src/main/ets/pages/SecretMediaPreviewPage.ets",
+      "buildFunction": "secretMediaPreviewPageBuilder"
+    },
+    {
+      "name": "SettingsBackendPage",
+      "pageSourceFile": "src/main/ets/pages/SettingsBackendPage.ets",
+      "buildFunction": "settingsBackendPageBuilder"
+    },
+    {
+      "name": "SetupPassportPasswordPage",
+      "pageSourceFile": "src/main/ets/pages/SetupPassportPasswordPage.ets",
+      "buildFunction": "setupPassportPasswordPageBuilder"
+    },
+    {
+      "name": "ShareControllerPage",
+      "pageSourceFile": "src/main/ets/pages/ShareControllerPage.ets",
+      "buildFunction": "shareControllerPageBuilder"
+    },
+    {
+      "name": "SharedMediaPage",
+      "pageSourceFile": "src/main/ets/pages/SharedMediaPage.ets",
+      "buildFunction": "sharedMediaPageBuilder"
+    },
+    {
+      "name": "StarsRevenueStatsPage",
+      "pageSourceFile": "src/main/ets/pages/StarsRevenueStatsPage.ets",
+      "buildFunction": "starsRevenueStatsPageBuilder"
+    },
+    {
+      "name": "StickersSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/StickersSettingsPage.ets",
+      "buildFunction": "stickersSettingsPageBuilder"
+    },
+    {
+      "name": "TelegramAudioPage",
+      "pageSourceFile": "src/main/ets/pages/TelegramAudioPage.ets",
+      "buildFunction": "telegramAudioPageBuilder"
+    },
+    {
+      "name": "TelegramCallsPage",
+      "pageSourceFile": "src/main/ets/pages/TelegramCallsPage.ets",
+      "buildFunction": "telegramCallsPageBuilder"
+    },
+    {
+      "name": "TelegramVoipPage",
+      "pageSourceFile": "src/main/ets/pages/TelegramVoipPage.ets",
+      "buildFunction": "telegramVoipPageBuilder"
+    },
+    {
+      "name": "TwoFactorAuthPage",
+      "pageSourceFile": "src/main/ets/pages/TwoFactorAuthPage.ets",
+      "buildFunction": "twoFactorAuthPageBuilder"
+    },
+    {
+      "name": "TwoFactorAuthSplashPage",
+      "pageSourceFile": "src/main/ets/pages/TwoFactorAuthSplashPage.ets",
+      "buildFunction": "twoFactorAuthSplashPageBuilder"
+    },
+    {
+      "name": "TwoFactorCreatePasswordPage",
+      "pageSourceFile": "src/main/ets/pages/TwoFactorCreatePasswordPage.ets",
+      "buildFunction": "twoFactorCreatePasswordPageBuilder"
+    },
+    {
+      "name": "UpdateInfoPage",
+      "pageSourceFile": "src/main/ets/pages/UpdateInfoPage.ets",
+      "buildFunction": "updateInfoPageBuilder"
+    },
+    {
+      "name": "UserProfilePage",
+      "pageSourceFile": "src/main/ets/pages/UserProfilePage.ets",
+      "buildFunction": "userProfilePageBuilder"
+    },
+    {
+      "name": "UsernameSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/UsernameSettingsPage.ets",
+      "buildFunction": "usernameSettingsPageBuilder"
+    },
+    {
+      "name": "VenuePickerPage",
+      "pageSourceFile": "src/main/ets/pages/VenuePickerPage.ets",
+      "buildFunction": "venuePickerPageBuilder"
+    },
+    {
+      "name": "VideoCallScreen",
+      "pageSourceFile": "src/main/ets/pages/VideoCallScreen.ets",
+      "buildFunction": "videoCallScreenBuilder"
+    },
+    {
+      "name": "WallpaperPickerPage",
+      "pageSourceFile": "src/main/ets/pages/WallpaperPickerPage.ets",
+      "buildFunction": "wallpaperPickerPageBuilder"
+    },
+    {
+      "name": "WeatherPage",
+      "pageSourceFile": "src/main/ets/pages/WeatherPage.ets",
+      "buildFunction": "weatherPageBuilder"
+    },
+    {
+      "name": "WebSearchPage",
+      "pageSourceFile": "src/main/ets/pages/WebSearchPage.ets",
+      "buildFunction": "webSearchPageBuilder"
+    },
+    {
+      "name": "WebSessionsPage",
+      "pageSourceFile": "src/main/ets/pages/WebSessionsPage.ets",
+      "buildFunction": "webSessionsPageBuilder"
+    },
+    {
+      "name": "WebBrowserSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/WebBrowserSettingsPage.ets",
+      "buildFunction": "webBrowserSettingsPageBuilder"
+    },
+    {
+      "name": "InteractiveMapPage",
+      "pageSourceFile": "src/main/ets/pages/InteractiveMapPage.ets",
+      "buildFunction": "interactiveMapPageBuilder"
+    },
+    {
+      "name": "QrScannerPage",
+      "pageSourceFile": "src/main/ets/pages/QrScannerPage.ets",
+      "buildFunction": "qrScannerPageBuilder"
+    },
+    {
+      "name": "ChatQrCodeSharePage",
+      "pageSourceFile": "src/main/ets/pages/ChatQrCodeSharePage.ets",
+      "buildFunction": "chatQrCodeSharePageBuilder"
+    },
+    {
+      "name": "WebAppPage",
+      "pageSourceFile": "src/main/ets/pages/WebAppPage.ets",
+      "buildFunction": "webAppPageBuilder"
+    },
+    {
+      "name": "PremiumSubscriptionFlowPage",
+      "pageSourceFile": "src/main/ets/pages/PremiumSubscriptionFlowPage.ets",
+      "buildFunction": "premiumSubscriptionFlowPageBuilder"
+    },
+    {
+      "name": "InviteMembersSheet",
+      "pageSourceFile": "src/main/ets/pages/InviteMembersSheet.ets",
+      "buildFunction": "inviteMembersSheetBuilder"
+    },
+    {
+      "name": "ChatRoomPage",
+      "pageSourceFile": "src/main/ets/pages/ChatRoomPage.ets",
+      "buildFunction": "chatRoomPageBuilder"
+    },
+    {
+      "name": "BotReceiptPage",
+      "pageSourceFile": "src/main/ets/pages/BotReceiptPage.ets",
+      "buildFunction": "botReceiptPageBuilder"
+    },
+    {
+      "name": "InviteLinkEditPage",
+      "pageSourceFile": "src/main/ets/pages/InviteLinkEditPage.ets",
+      "buildFunction": "inviteLinkEditPageBuilder"
+    },
+    {
+      "name": "MainTabPage",
+      "pageSourceFile": "src/main/ets/pages/MainTabPage.ets",
+      "buildFunction": "mainTabPageBuilder"
+    },
+    {
+      "name": "PeerInfoPage",
+      "pageSourceFile": "src/main/ets/pages/PeerInfoPage.ets",
+      "buildFunction": "peerInfoPageBuilder"
+    },
+    {
+      "name": "AnimationCompressionPage",
+      "pageSourceFile": "src/main/ets/pages/AnimationCompressionPage.ets",
+      "buildFunction": "animationCompressionPageBuilder"
+    },
+    {
+      "name": "ArchiveSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/ArchiveSettingsPage.ets",
+      "buildFunction": "archiveSettingsPageBuilder"
+    },
+    {
+      "name": "ChatSendMessageContextScreen",
+      "pageSourceFile": "src/main/ets/pages/ChatSendMessageContextScreen.ets",
+      "buildFunction": "chatSendMessageContextScreenBuilder"
+    },
+    {
+      "name": "CountrySelectionPage",
+      "pageSourceFile": "src/main/ets/pages/CountrySelectionPage.ets",
+      "buildFunction": "countrySelectionPageBuilder"
+    },
+    {
+      "name": "DeviceAccessPage",
+      "pageSourceFile": "src/main/ets/pages/DeviceAccessPage.ets",
+      "buildFunction": "deviceAccessPageBuilder"
+    },
+    {
+      "name": "GraphPage",
+      "pageSourceFile": "src/main/ets/pages/GraphPage.ets",
+      "buildFunction": "graphPageBuilder"
+    },
+    {
+      "name": "HashtagSearchPage",
+      "pageSourceFile": "src/main/ets/pages/HashtagSearchPage.ets",
+      "buildFunction": "hashtagSearchPageBuilder"
+    },
+    {
+      "name": "LanguageSelectionPageArguments",
+      "pageSourceFile": "src/main/ets/pages/LanguageSelectionPageArguments.ets",
+      "buildFunction": "languageSelectionPageArgumentsBuilder"
+    },
+    {
+      "name": "LocationViewPage",
+      "pageSourceFile": "src/main/ets/pages/LocationViewPage.ets",
+      "buildFunction": "locationViewPageBuilder"
+    },
+    {
+      "name": "LocationDetailPage",
+      "pageSourceFile": "src/main/ets/pages/LocationDetailPage.ets",
+      "buildFunction": "locationDetailPageBuilder"
+    },
+    {
+      "name": "LocationPage",
+      "pageSourceFile": "src/main/ets/pages/LocationPage.ets",
+      "buildFunction": "locationPageBuilder"
+    },
+    {
+      "name": "StickerPackPreviewPage",
+      "pageSourceFile": "src/main/ets/pages/StickerPackPreviewPage.ets",
+      "buildFunction": "stickerPackPreviewPageBuilder"
+    },
+    {
+      "name": "TransactionInfoScreen",
+      "pageSourceFile": "src/main/ets/pages/TransactionInfoScreen.ets",
+      "buildFunction": "transactionInfoScreenBuilder"
+    },
+    {
+      "name": "ChannelMembersSearchPage",
+      "pageSourceFile": "src/main/ets/pages/ChannelMembersSearchPage.ets",
+      "buildFunction": "channelMembersSearchPageBuilder"
+    },
+    {
+      "name": "PhoneInputPage",
+      "pageSourceFile": "src/main/ets/pages/PhoneInputPage.ets",
+      "buildFunction": "phoneInputPageBuilder"
+    },
+    {
+      "name": "CodeInputPage",
+      "pageSourceFile": "src/main/ets/pages/CodeInputPage.ets",
+      "buildFunction": "codeInputPageBuilder"
+    },
+    {
+      "name": "PasswordInputPage",
+      "pageSourceFile": "src/main/ets/pages/PasswordInputPage.ets",
+      "buildFunction": "passwordInputPageBuilder"
+    },
+    {
+      "name": "PasswordRecoveryPage",
+      "pageSourceFile": "src/main/ets/pages/PasswordRecoveryPage.ets",
+      "buildFunction": "passwordRecoveryPageBuilder"
+    },
+    {
+      "name": "SignUpPage",
+      "pageSourceFile": "src/main/ets/pages/SignUpPage.ets",
+      "buildFunction": "signUpPageBuilder"
+    },
+    {
+      "name": "EmailLoginPage",
+      "pageSourceFile": "src/main/ets/pages/EmailLoginPage.ets",
+      "buildFunction": "emailLoginPageBuilder"
+    },
+    {
+      "name": "AccountResetPage",
+      "pageSourceFile": "src/main/ets/pages/AccountResetPage.ets",
+      "buildFunction": "accountResetPageBuilder"
+    },
+    {
+      "name": "ArchiveInfoPage",
+      "pageSourceFile": "src/main/ets/pages/ArchiveInfoPage.ets",
+      "buildFunction": "archiveInfoPageBuilder"
+    },
+    {
+      "name": "LogoutOptionsPage",
+      "pageSourceFile": "src/main/ets/pages/LogoutOptionsPage.ets",
+      "buildFunction": "logoutOptionsPageBuilder"
+    },
+    {
+      "name": "DeleteAccountOptionsScreen",
+      "pageSourceFile": "src/main/ets/pages/DeleteAccountOptionsScreen.ets",
+      "buildFunction": "deleteAccountOptionsScreenBuilder"
+    },
+    {
+      "name": "TextSizeSelectionPage",
+      "pageSourceFile": "src/main/ets/pages/TextSizeSelectionPage.ets",
+      "buildFunction": "textSizeSelectionPageBuilder"
+    },
+    {
+      "name": "BubbleSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/BubbleSettingsPage.ets",
+      "buildFunction": "bubbleSettingsPageBuilder"
+    },
+    {
+      "name": "ChatThemesPage",
+      "pageSourceFile": "src/main/ets/pages/ChatThemesPage.ets",
+      "buildFunction": "chatThemesPageBuilder"
+    },
+    {
+      "name": "DebugAccountsPage",
+      "pageSourceFile": "src/main/ets/pages/DebugAccountsPage.ets",
+      "buildFunction": "debugAccountsPageBuilder"
+    },
+    {
+      "name": "SelectivePrivacySettingsPage",
+      "pageSourceFile": "src/main/ets/pages/SelectivePrivacySettingsPage.ets",
+      "buildFunction": "selectivePrivacySettingsPageBuilder"
+    },
+    {
+      "name": "SelectivePrivacySettingsPeersPage",
+      "pageSourceFile": "src/main/ets/pages/SelectivePrivacySettingsPeersPage.ets",
+      "buildFunction": "selectivePrivacySettingsPeersPageBuilder"
+    },
+    {
+      "name": "StorageUsagePage",
+      "pageSourceFile": "src/main/ets/pages/StorageUsagePage.ets",
+      "buildFunction": "storageUsagePageBuilder"
+    },
+    {
+      "name": "StorageUsageExceptionsPage",
+      "pageSourceFile": "src/main/ets/pages/StorageUsageExceptionsPage.ets",
+      "buildFunction": "storageUsageExceptionsPageBuilder"
+    },
+    {
+      "name": "EditThemePage",
+      "pageSourceFile": "src/main/ets/pages/EditThemePage.ets",
+      "buildFunction": "editThemePageBuilder"
+    },
+    {
+      "name": "DataUsagePage",
+      "pageSourceFile": "src/main/ets/pages/DataUsagePage.ets",
+      "buildFunction": "dataUsagePageBuilder"
+    },
+    {
+      "name": "IntentsSettingsPage",
+      "pageSourceFile": "src/main/ets/pages/IntentsSettingsPage.ets",
+      "buildFunction": "intentsSettingsPageBuilder"
+    },
+    {
+      "name": "SaveIncomingMediaPage",
+      "pageSourceFile": "src/main/ets/pages/SaveIncomingMediaPage.ets",
+      "buildFunction": "saveIncomingMediaPageBuilder"
+    },
+    {
+      "name": "GlobalAutoremoveScreen",
+      "pageSourceFile": "src/main/ets/pages/GlobalAutoremoveScreen.ets",
+      "buildFunction": "globalAutoremoveScreenBuilder"
+    },
+    {
+      "name": "ProxyQrSharePage",
+      "pageSourceFile": "src/main/ets/pages/ProxyQrSharePage.ets",
+      "buildFunction": "proxyQrSharePageBuilder"
+    },
+    {
+      "name": "AutosaveExceptionPeerSelectionPage",
+      "pageSourceFile": "src/main/ets/pages/AutosaveExceptionPeerSelectionPage.ets",
+      "buildFunction": "autosaveExceptionPeerSelectionPageBuilder"
+    },
+    {
+      "name": "AutosaveExceptionConfigPage",
+      "pageSourceFile": "src/main/ets/pages/AutosaveExceptionConfigPage.ets",
+      "buildFunction": "autosaveExceptionConfigPageBuilder"
+    },
+    {
+      "name": "ThemePreviewPage",
+      "pageSourceFile": "src/main/ets/pages/ThemePreviewPage.ets",
+      "buildFunction": "themePreviewPageBuilder"
+    },
+    {
+      "name": "PasskeysPage",
+      "pageSourceFile": "src/main/ets/pages/PasskeysPage.ets",
+      "buildFunction": "passkeysPageBuilder"
+    },
+    {
+      "name": "ThemeAccentColorPickerPage",
+      "pageSourceFile": "src/main/ets/pages/ThemeAccentColorPickerPage.ets",
+      "buildFunction": "themeAccentColorPickerPageBuilder"
+    }
+  ]
+}

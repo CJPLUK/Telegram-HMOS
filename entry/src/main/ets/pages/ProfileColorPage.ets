@@ -1,0 +1,41 @@
+import { CJHybridComponent } from '@cangjie/cjhybridcomponent';
+import { dispatchEvent } from 'libohos_app_cangjie_entry.so';
+import { CustomTransition } from '../router/CustomTransition';
+
+@Builder
+export function profileColorPageBuilder() {
+  ProfileColorPageShell();
+}
+
+@Component
+struct ProfileColorPageShell {
+  @State ctTransX: number = 0;
+  @State ctTransY: number = 0;
+  @State ctDim: number = 0;
+  private ctNavId: string = '';
+  build() {
+    NavDestination() {
+      Stack() {
+        CJHybridComponent({ library: 'ohos_app_cangjie_entry', component: 'ProfileColorPage' })
+          .width('100%').height('100%');
+        if (this.ctDim > 0.001) {
+          Column().width('100%').height('100%').backgroundColor(Color.Black).opacity(this.ctDim);
+        }
+      }.width('100%').height('100%')
+        .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
+    }
+    .hideTitleBar(true)
+    .onBackPressed((): boolean => {
+      dispatchEvent('profileColorPage.back', '{}');
+      return true;
+    })
+    .translate({ x: `${this.ctTransX}%`, y: `${this.ctTransY}%` })
+    .onReady((ctx: NavDestinationContext) => {
+      this.ctNavId = ctx.navDestinationId ?? '';
+      CustomTransition.register(this.ctNavId, (x: number, y: number, d: number) => {
+        this.ctTransX = x; this.ctTransY = y; this.ctDim = d;
+      });
+    })
+    .onDisAppear(() => CustomTransition.unregister(this.ctNavId));
+  }
+}

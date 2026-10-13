@@ -1,0 +1,40 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Telegram"
+    },
+    {
+      "name": "perm_location_reason",
+      "value": "Used to share your location and find nearby places."
+    },
+    {
+      "name": "perm_biometric_reason",
+      "value": "Used to unlock the app with biometric authentication."
+    },
+    {
+      "name": "perm_microphone_reason",
+      "value": "Used to record audio for voice messages and video."
+    },
+    {
+      "name": "perm_camera_reason",
+      "value": "Used to capture video for video calls."
+    },
+    {
+      "name": "perm_contacts_reason",
+      "value": "Used to find your friends on Telegram and invite contacts."
+    },
+    {
+      "name": "perm_photolibrary_reason",
+      "value": "Used to choose photos and videos from your gallery."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+  <!-- diag-suite_settings_root-TC-0081-round3.md F-3: fill-type outline replacing the
+       previous fill="none" stroke path (调用点用 .fillColor() 上色, 对 stroke path 无效,
+       导致渲染半黑半蓝). Equivalent to the old 2.4-wide round-cap/round-join stroke,
+       expressed as 2 capsule polygons (one per segment) + 1 full-circle join disc at the
+       shared vertex (4.5,12.8)-(9.6,17.9)-(19.5,6.6), radius 1.2 = stroke-width/2. -->
+  <path fill="#000000" d="M3.651,13.649 L8.751,18.749 A1.2,1.2 0 0 0 10.449,17.051 L5.349,11.951 A1.2,1.2 0 0 0 3.651,13.649 Z M10.503,18.691 L20.403,7.391 A1.2,1.2 0 0 0 18.597,5.809 L8.697,17.109 A1.2,1.2 0 0 0 10.503,18.691 Z M10.8,17.9 A1.2,1.2 0 0 0 8.4,17.9 A1.2,1.2 0 0 0 10.8,17.9 Z"/>
+</svg>
