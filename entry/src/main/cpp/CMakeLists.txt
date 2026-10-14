@@ -11,9 +11,30 @@ endif()
 include_directories(${NATIVERENDER_ROOT_PATH}
                     ${NATIVERENDER_ROOT_PATH}/include)
 
+# Prebuilt arm64-v8a static libs (libopus / libyuv / libcrypto / libvpx) and their headers are
+# vendored under third_party/prebuilt, and the libwebm parser source under third_party/libwebm, so
+# a fresh clone builds with full functionality (voice-message Opus/OGG encoding, round-video
+# transcoding, WebM video stickers) without running tgcalls_ohos/build.sh first. If the vendored
+# copy is absent, fall back to a locally built ../tgcalls_ohos/out tree.
+# To rebuild the prebuilt libs from source, run third_party/prebuilt/build_all.sh (pinned sources and
+# toolchain in third_party/prebuilt/build_env.txt).
 set(TGCALLS_OHOS_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../../../../../tgcalls_ohos)
-set(LIBWEBM_ROOT ${TGCALLS_OHOS_ROOT}/src/libvpx/third_party/libwebm)
-set(TG_VIDEO_STICKER_LIBVPX ${TGCALLS_OHOS_ROOT}/out/lib/libvpx.a)
+set(TG_PREBUILT_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/third_party/prebuilt)
+if(EXISTS ${TG_PREBUILT_ROOT}/arm64-v8a/lib/libopus.a)
+    set(TG_NATIVE_LIB_DIR ${TG_PREBUILT_ROOT}/arm64-v8a/lib)
+    set(TG_NATIVE_INCLUDE_DIR ${TG_PREBUILT_ROOT}/include)
+else()
+    set(TG_NATIVE_LIB_DIR ${TGCALLS_OHOS_ROOT}/out/lib)
+    set(TG_NATIVE_INCLUDE_DIR ${TGCALLS_OHOS_ROOT}/out/include)
+endif()
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/libwebm/mkvparser/mkvparser.cc)
+    set(LIBWEBM_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/third_party/libwebm)
+    set(TG_LIBVPX_SRC_INCLUDE_DIR "")
+else()
+    set(LIBWEBM_ROOT ${TGCALLS_OHOS_ROOT}/src/libvpx/third_party/libwebm)
+    set(TG_LIBVPX_SRC_INCLUDE_DIR ${TGCALLS_OHOS_ROOT}/src/libvpx)
+endif()
+set(TG_VIDEO_STICKER_LIBVPX ${TG_NATIVE_LIB_DIR}/libvpx.a)
 set(TG_VIDEO_STICKER_MKVPARSER ${LIBWEBM_ROOT}/mkvparser/mkvparser.cc)
 
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build rlottie as part of entry" FORCE)
@@ -77,8 +98,8 @@ if(TG_VIDEO_STICKER_NATIVE)
     set_source_files_properties(telegram_video_sticker_bridge.cpp
         PROPERTIES COMPILE_OPTIONS "-O3")
     target_include_directories(entry PRIVATE
-        ${TGCALLS_OHOS_ROOT}/out/include
-        ${TGCALLS_OHOS_ROOT}/src/libvpx
+        ${TG_NATIVE_INCLUDE_DIR}
+        ${TG_LIBVPX_SRC_INCLUDE_DIR}
         ${LIBWEBM_ROOT})
     target_link_libraries(entry PUBLIC ${TG_VIDEO_STICKER_LIBVPX})
 endif()
@@ -92,15 +113,16 @@ set_source_files_properties(emoji_frames_napi.cpp
     PROPERTIES COMPILE_OPTIONS "-O3")
 
 # 媒体模块 tg_media：语音 Opus/OGG 编码 + 圆形视频方形转码
-#（libopus / libyuv 复用 tgcalls_ohos 预编译 arm64 静态库；系统 AVCodec/AVMuxer/AVDemuxer 走 NDK）。
-set(TG_OPUS_LIB ${TGCALLS_OHOS_ROOT}/out/lib/libopus.a)
-set(TG_YUV_LIB ${TGCALLS_OHOS_ROOT}/out/lib/libyuv.a)
+#（libopus / libyuv 用 third_party/prebuilt 里的预编译 arm64 静态库，缺失时退回 tgcalls_ohos/out；
+#  系统 AVCodec/AVMuxer/AVDemuxer 走 NDK）。
+set(TG_OPUS_LIB ${TG_NATIVE_LIB_DIR}/libopus.a)
+set(TG_YUV_LIB ${TG_NATIVE_LIB_DIR}/libyuv.a)
 if(CMAKE_OHOS_ARCH_ABI STREQUAL "arm64-v8a" AND EXISTS ${TG_OPUS_LIB} AND EXISTS ${TG_YUV_LIB})
-    set(TG_CRYPTO_LIB ${TGCALLS_OHOS_ROOT}/out/lib/libcrypto.a)
+    set(TG_CRYPTO_LIB ${TG_NATIVE_LIB_DIR}/libcrypto.a)
     add_library(tg_media SHARED tg_media_init.cpp opus_ogg_encoder.cpp round_video_transcoder.cpp tg_crypto.cpp)
     target_include_directories(tg_media PRIVATE
-        ${TGCALLS_OHOS_ROOT}/out/include
-        ${TGCALLS_OHOS_ROOT}/out/include/opus)
+        ${TG_NATIVE_INCLUDE_DIR}
+        ${TG_NATIVE_INCLUDE_DIR}/opus)
     target_link_libraries(tg_media PUBLIC
         libace_napi.z.so libhilog_ndk.z.so
         libnative_media_core.so libnative_media_codecbase.so

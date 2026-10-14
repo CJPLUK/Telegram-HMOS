@@ -42,21 +42,21 @@ MTProto 协议文档：https://core.telegram.org/mtproto
 2. 用 DevEco Studio 打开（Open，不要用 Import）项目目录，等待同步完成。
 3. 在 `entry/src/main/cangjie/core/mtproto/MTProtoConfig.cj` 中，把从 https://my.telegram.org/apps 拿到的值填入 `PROD_API_ID` 和 `PROD_API_HASH`。如需使用 Telegram 测试数据中心，也请填写 `TEST_API_ID` / `TEST_API_HASH`。
 4. 配置签名：**File › Project Structure › Signing Configs**，登录后勾选 *Automatically generate signature*（或指定你自己的证书）。DevEco Studio 会把签名配置写入 `build-profile.json5`，其中含证书路径和密钥口令，**请勿提交**。
-5. 选择 `entry` 模块点击 **Run**。也可以用 DevEco Studio 自带的 `hvigorw`（`<DevEco Studio>/tools/hvigor/bin/hvigorw`）在命令行编译：
-   ```bash
-   hvigorw assembleHap --mode module -p product=default -p buildMode=debug
-   ```
+5. 选择 `entry` 模块点击 **Run**。
 
-### 已知限制
+### 原生库
 
-几个预编译的原生媒体库（libopus、libyuv、libvpx 和 BoringSSL）暂未包含在本仓库中。项目不依赖它们也能正常编译，但在补齐之前：
+与 Telegram for Android 一样，本仓库直接附带几个预编译的第三方原生库，克隆后即可编译出完整功能：opus（语音消息）、libyuv（圆形视频消息）、libvpx（视频贴纸）和 BoringSSL 的 libcrypto（MTProto 加密）。它们位于 `entry/src/main/cpp/third_party/prebuilt/`（arm64-v8a），同目录还有头文件和从固定版本源码重新编译它们的脚本：
 
-- **语音消息**以 WAV 而不是 Opus/OGG 发送，对方收到的是普通音频文件，而不是语音消息。
-- **圆形视频消息**按原始录制画面发送，不做 400×400 方形裁剪。
-- **视频贴纸**（WebM/VP9）无法播放。
-- **MTProto 加密**使用较慢的备用实现。
+```bash
+entry/src/main/cpp/third_party/prebuilt/build_all.sh
+```
 
-语音和视频通话不受影响。这些库会在后续更新中补齐。
+编译结果可复现，与仓库中的文件逐字节一致。源码版本、工具链和校验和见同目录的 `build_env.txt`。
+
+通话引擎 `entry/libs/arm64-v8a/libtgcalls_ohos.so` 同样是预编译的，所用上游版本见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+完整功能仅支持 arm64 设备。x86_64 模拟器上，语音消息编码、圆形视频裁剪和视频贴纸使用桩实现，通话不可用。
 
 ### 目录结构
 
@@ -68,7 +68,8 @@ entry/
     services/ providers/  业务逻辑与数据访问
     viewmodels/ pages/ components/
                           界面
-  src/main/cpp/           原生代码：rlottie（动画贴纸）、媒体与视频贴纸桥接
+  src/main/cpp/           原生代码：媒体、加密与视频贴纸桥接
+    third_party/          rlottie 与 libwebm 源码；预编译的 opus、libyuv、libvpx、libcrypto
   src/main/ets/           ArkTS 入口 Ability 与互操作胶水层
   libs/                   预编译的标准扩展库（stdx）与 libtgcalls_ohos.so
 third_party_licenses/     随仓库分发的第三方组件许可证全文

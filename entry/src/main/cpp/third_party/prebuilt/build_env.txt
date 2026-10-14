@@ -1,0 +1,49 @@
+Prebuilt static libraries for arm64-v8a, used by entry/src/main/cpp/CMakeLists.txt
+(tg_media: voice-message Opus/OGG encoding, round-video transcoding, MTProto AES-IGE;
+ entry: WebM video stickers).
+
+Rebuild:  ./build_all.sh          (or a single ./build_<lib>.sh)
+          OUT_DIR=/some/dir ./build_all.sh  to build elsewhere and compare.
+The build is reproducible: the same toolchain and sources give byte-identical archives
+(see the checksums below), independent of where the sources are checked out.
+
+Build environment
+-----------------
+Host:              macOS 26.6 (arm64)
+DevEco Studio:     6.1.1
+HarmonyOS native:  6.1.1.125 (DevEco Studio sdk/default/openharmony/native)
+Compiler:          OHOS (dev) clang version 15.0.4 (llvm-project 99548401bd80576251755b185ab95945e5fe7884)
+Target:            aarch64-linux-ohos (musl), OHOS_ARCH=arm64-v8a
+CMake / Ninja:     3.28.2 / 1.12.0 (bundled with the native SDK)
+Make:              GNU Make 3.81 (libvpx)
+
+Sources
+-------
+Telegram for iOS   https://github.com/TelegramMessenger/Telegram-iOS
+                   commit 6ad963e5b62d354da79040f388ae2b9132fb17b8
+  BoringSSL        third-party/boringssl              (Telegram's vendored tree with pre-generated assembly)
+  opus 1.5.1       third-party/opus/opus-1.5.1.tar.gz
+  libyuv           third-party/libyuv/third_party/libyuv
+libvpx v1.13.0     https://github.com/webmproject/libvpx
+                   commit e7bfd8b6c230a6824e7fd1efa2378a7322986128 (Telegram-iOS's third-party/libvpx/libvpx submodule)
+  libwebm          third_party/libwebm of the same libvpx commit; the mkvparser subset is
+                   vendored as source in ../libwebm and compiled by the app's CMakeLists.txt
+
+Configuration
+-------------
+BoringSSL  CMake Release, target crypto
+opus       CMake Release, -DOPUS_BUILD_SHARED_LIBRARY=OFF -DOPUS_PRESUME_NEON=ON -DOPUS_BUILD_TESTING=OFF
+           -DOPUS_BUILD_PROGRAMS=OFF -DOPUS_STACK_PROTECTOR=OFF
+libyuv     CMake Release, target yuv
+libvpx     configure --target=arm64-linux-gcc --enable-static --disable-shared --enable-pic --enable-vp8
+           --enable-vp9 --enable-realtime-only --disable-examples --disable-tools --disable-docs
+           --disable-unit-tests --disable-webm-io --disable-libyuv --disable-install-docs
+           --disable-install-bins --disable-install-srcs --extra-cflags="-O3 -fvisibility=hidden"
+All CMake builds use -DCMAKE_POSITION_INDEPENDENT_CODE=ON and -ffile-prefix-map to strip local paths.
+
+SHA-256
+-------
+13f3b0e2184a11925282c8d8425cac7aebc0fa5c43f4609cd92531ee83cc6cbe  arm64-v8a/lib/libcrypto.a
+a479fd96e2a48fb2d36f22504bcc98839ec6f7ed2fef82749995f64c2d234afe  arm64-v8a/lib/libopus.a
+720cd86c56cc55556a1a1ed70273d25bc833f2bbf440492483cd6463b2615d32  arm64-v8a/lib/libvpx.a
+154f01e0a24bb8a9ac3c4144e4a0314eaf6a41febfe5e90537d2aff5d830c6e9  arm64-v8a/lib/libyuv.a

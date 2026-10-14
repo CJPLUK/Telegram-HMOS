@@ -43,21 +43,21 @@ You will require:
 2. Open the project directory in DevEco Studio (open it, do NOT import it) and let it sync.
 3. Fill in `PROD_API_ID` and `PROD_API_HASH` in `entry/src/main/cangjie/core/mtproto/MTProtoConfig.cj` with the values you got from https://my.telegram.org/apps. Fill in `TEST_API_ID` / `TEST_API_HASH` too if you plan to use Telegram's test data centers.
 4. Configure signing: **File › Project Structure › Signing Configs**, then sign in and choose *Automatically generate signature* (or point it to your own certificate). DevEco Studio writes the signing configuration into `build-profile.json5`; **do not commit it**, it contains your certificate paths and key passwords.
-5. Choose the `entry` module and press **Run**. To build from the command line instead, use the `hvigorw` bundled with DevEco Studio (`<DevEco Studio>/tools/hvigor/bin/hvigorw`):
-   ```bash
-   hvigorw assembleHap --mode module -p product=default -p buildMode=debug
-   ```
+5. Choose the `entry` module and press **Run**.
 
-### Known limitations
+### Native libraries
 
-A few prebuilt native media libraries (libopus, libyuv, libvpx and BoringSSL) are not yet included in this repo. The project builds without them, but until they are added:
+Like Telegram for Android, this repo ships a few third-party native libraries prebuilt, so a fresh clone builds with full functionality: opus (voice messages), libyuv (round video messages), libvpx (video stickers) and BoringSSL's libcrypto (MTProto encryption). They are in `entry/src/main/cpp/third_party/prebuilt/` for arm64-v8a, together with their headers and the scripts that rebuild them from pinned sources. To reproduce them:
 
-- **Voice messages** are sent as WAV instead of Opus/OGG, so recipients get a regular audio file instead of a voice message.
-- **Round video messages** are sent as recorded, without the 400×400 square crop.
-- **Video stickers** (WebM/VP9) do not play.
-- **MTProto encryption** uses a slower fallback implementation.
+```bash
+entry/src/main/cpp/third_party/prebuilt/build_all.sh
+```
 
-Voice and video calls are not affected. These libraries will be added in a future update.
+The build is reproducible: it produces the same files byte for byte. `build_env.txt` in the same directory lists the source versions, toolchain and checksums.
+
+The call engine `entry/libs/arm64-v8a/libtgcalls_ohos.so` is also prebuilt; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the exact upstream versions it is built from.
+
+Only arm64 devices get the full feature set. On the x86_64 emulator, voice-message encoding, round-video cropping and video stickers fall back to stubs, and calls are unavailable.
 
 ### Project structure
 
@@ -69,7 +69,8 @@ entry/
     services/ providers/  Business logic and data access
     viewmodels/ pages/ components/
                           UI
-  src/main/cpp/           Native code: rlottie (animated stickers), media and video-sticker bridges
+  src/main/cpp/           Native code: media, crypto and video-sticker bridges
+    third_party/          rlottie and libwebm sources; prebuilt opus, libyuv, libvpx, libcrypto
   src/main/ets/           ArkTS entry ability and interop glue
   libs/                   Prebuilt standard extension libraries (stdx) and libtgcalls_ohos.so
 third_party_licenses/     Licence texts of bundled third-party components
