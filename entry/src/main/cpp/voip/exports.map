@@ -1,0 +1,9 @@
+/* libtgcalls_ohos.so export policy: only the C shim ABI is public.
+ * Everything else (tgcalls::, webrtc::, absl::, BoringSSL, opus, ...) stays
+ * local so the app's own boringssl/absl copies can never collide. */
+{
+  global:
+    tgcalls_*;
+  local:
+    *;
+};

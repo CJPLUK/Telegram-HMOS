@@ -134,3 +134,9 @@ else()
     add_library(tg_media SHARED tg_media_init.cpp tg_media_stub.cpp)
     target_link_libraries(tg_media PUBLIC libace_napi.z.so libhilog_ndk.z.so)
 endif()
+
+# 通话引擎 libtgcalls_ohos.so：tgcalls + Telegram 的 WebRTC 随应用从源码编译（同 Telegram Android 的 jni/voip），
+# 只有 arm64-v8a（依赖的预编译静态库只有 arm64）。说明见 voip/CMakeLists.txt。
+if(CMAKE_OHOS_ARCH_ABI STREQUAL "arm64-v8a")
+    add_subdirectory(voip)
+endif()

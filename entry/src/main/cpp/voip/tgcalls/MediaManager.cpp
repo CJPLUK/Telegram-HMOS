@@ -854,7 +854,8 @@ void MediaManager::checkIsSendingVideoChanged(bool wasSending) {
 }
 
 int MediaManager::getMaxVideoBitrate() const {
-    return (_enableHighBitrateVideo && _isLowCostNetwork) ? 2000000 : 800000;
+    // 720p 采集需要更高码率才清晰：默认 800kbps 对 720p 压得太狠仍糊，提到 1.2Mbps。
+    return (_enableHighBitrateVideo && _isLowCostNetwork) ? 2000000 : 1200000;
 }
 
 int MediaManager::getMaxAudioBitrate() const {

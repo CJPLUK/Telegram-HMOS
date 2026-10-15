@@ -1,3 +1,4 @@
+#include "rtc_base/time_utils.h"
 #include "group/GroupNetworkManager.h"
 
 #include "p2p/base/basic_packet_socket_factory.h"
@@ -620,6 +621,14 @@ void GroupNetworkManager::transportPacketReceived(rtc::PacketTransportInternal *
 }
 
 void GroupNetworkManager::RtpPacketReceived_n(webrtc::RtpPacketReceived const &packet, bool isUnresolved) {
+    {
+        static int64_t ohosLastRtpMs = 0;
+        const int64_t nowMs = rtc::TimeMillis();
+        if (ohosLastRtpMs != 0 && nowMs - ohosLastRtpMs >= 250) {
+            RTC_LOG(LS_ERROR) << "OHOS-LAT rtp gap=" << (nowMs - ohosLastRtpMs) << "ms (no incoming RTP), resumed with pt=" << packet.PayloadType();
+        }
+        ohosLastRtpMs = nowMs;
+    }
     if (packet.HasExtension(webrtc::kRtpExtensionAudioLevel)) {
         uint8_t audioLevel = 0;
         bool isSpeech = false;

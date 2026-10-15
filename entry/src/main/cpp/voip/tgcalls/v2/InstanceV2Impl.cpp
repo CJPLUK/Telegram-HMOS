@@ -158,6 +158,10 @@ public:
         } else {
             audioOptions.echo_cancellation = true;
             audioOptions.noise_suppression = true;
+            // OHOS 质量修复（"声音小"）：iOS 靠平台 VPIO 强制 AGC，OHOS 的 OHAudio ADM
+            // 无平台 AGC → 采集电平低 → 对端听着小、低电平语音更易被 NS 当噪声削。
+            // 显式开 webrtc AGC 补上（对齐 iOS 强制 AGC 的效果）。
+            audioOptions.auto_gain_control = true;
         }
 
         const auto contentId = std::to_string(_ssrc);
@@ -927,6 +931,7 @@ public:
     _directConnectionChannel(descriptor.directConnectionChannel),
     _enableP2P(descriptor.config.enableP2P),
     _enableStunMarking(descriptor.config.enableStunMarking),
+    _enableHighBitrateVideo(descriptor.config.enableHighBitrateVideo),
     _encryptionKey(std::move(descriptor.encryptionKey)),
     _stateUpdated(descriptor.stateUpdated),
     _signalBarsUpdated(descriptor.signalBarsUpdated),
@@ -2163,7 +2168,11 @@ public:
             _outgoingAudioChannel->setMaxBitrate(32 * 1024);
         }
         if (_outgoingVideoChannel) {
-            _outgoingVideoChannel->setMaxBitrate(1000 * 1024);
+            // Keep the 720p send path at the same quality tier as the 720p receive path.
+            // The previous v2-only 1Mbps cap forced WebRTC spatial adaptation/soft output even
+            // though the OHOS camera and hardware encoder both ran at 720p.
+            _outgoingVideoChannel->setMaxBitrate(
+                (_enableHighBitrateVideo ? 3000 : 1000) * 1024);
         }
     }
 
@@ -2204,6 +2213,7 @@ private:
     std::shared_ptr<DirectConnectionChannel> _directConnectionChannel;
     bool _enableP2P = false;
     bool _enableStunMarking = false;
+    bool _enableHighBitrateVideo = false;
     EncryptionKey _encryptionKey;
     std::function<void(State)> _stateUpdated;
     std::function<void(int)> _signalBarsUpdated;

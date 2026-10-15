@@ -1,6 +1,6 @@
 Prebuilt static libraries for arm64-v8a, used by entry/src/main/cpp/CMakeLists.txt
 (tg_media: voice-message Opus/OGG encoding, round-video transcoding, MTProto AES-IGE;
- entry: WebM video stickers).
+ entry: WebM video stickers; libtgcalls_ohos: voice and video calls, see ../../voip).
 
 Rebuild:  ./build_all.sh          (or a single ./build_<lib>.sh)
           OUT_DIR=/some/dir ./build_all.sh  to build elsewhere and compare.
@@ -31,7 +31,7 @@ libvpx v1.13.0     https://github.com/webmproject/libvpx
 
 Configuration
 -------------
-BoringSSL  CMake Release, target crypto
+BoringSSL  CMake Release, targets crypto and ssl
 opus       CMake Release, -DOPUS_BUILD_SHARED_LIBRARY=OFF -DOPUS_PRESUME_NEON=ON -DOPUS_BUILD_TESTING=OFF
            -DOPUS_BUILD_PROGRAMS=OFF -DOPUS_STACK_PROTECTOR=OFF
 libyuv     CMake Release, target yuv
@@ -45,5 +45,6 @@ SHA-256
 -------
 13f3b0e2184a11925282c8d8425cac7aebc0fa5c43f4609cd92531ee83cc6cbe  arm64-v8a/lib/libcrypto.a
 a479fd96e2a48fb2d36f22504bcc98839ec6f7ed2fef82749995f64c2d234afe  arm64-v8a/lib/libopus.a
+f361bd0a2b262ab706d1e03a2aa3747d87d6b646f0dd76e8a787c0fc7e329c42  arm64-v8a/lib/libssl.a
 720cd86c56cc55556a1a1ed70273d25bc833f2bbf440492483cd6463b2615d32  arm64-v8a/lib/libvpx.a
 154f01e0a24bb8a9ac3c4144e4a0314eaf6a41febfe5e90537d2aff5d830c6e9  arm64-v8a/lib/libyuv.a

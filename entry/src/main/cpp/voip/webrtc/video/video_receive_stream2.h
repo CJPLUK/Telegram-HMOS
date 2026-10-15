@@ -48,7 +48,7 @@ class RtxReceiveStream;
 class VCMTiming;
 
 constexpr TimeDelta kMaxWaitForKeyFrame = TimeDelta::Millis(200);
-constexpr TimeDelta kMaxWaitForFrame = TimeDelta::Seconds(3);
+constexpr TimeDelta kMaxWaitForFrame = TimeDelta::Seconds(1);  // OHOS: was 3 s
 
 namespace internal {
 

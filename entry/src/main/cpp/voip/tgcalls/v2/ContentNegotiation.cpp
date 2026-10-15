@@ -382,6 +382,13 @@ std::unique_ptr<ContentNegotiationContext::NegotiationContents> ContentNegotiati
             // race condition detected — call initiator wins
             if (!_isOutgoing) {
                 _pendingOutgoingOffer.reset();
+                // OHOS 修复：被丢弃的 offer 所含通道必须重新排队。上游 bug：
+                // _needNegotiation 在 getPendingOffer() 构造 offer 时已被消费置 false，
+                // 此处仅 reset 不恢复 → 被叫的音/视频通道永远不再被 offer（拨出方向
+                // 对端 iOS 恒 video=0 的机理镜像）。置回 true 后，外层 InstanceV2Impl
+                // 在应答对端 offer 的同一回调里随即调 sendOfferIfNeeded，以新
+                // exchangeId 立即重发 → 自愈闭环。
+                _needNegotiation = true;
                 return getAnswer(std::move(remoteNegotiationContent));
             } else {
                 return nullptr;

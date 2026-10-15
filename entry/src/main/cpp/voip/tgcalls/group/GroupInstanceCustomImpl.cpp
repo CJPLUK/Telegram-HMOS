@@ -315,6 +315,13 @@ static std::vector<OutgoingVideoFormat> assignPayloadTypes(std::vector<webrtc::S
     };
 
     for (const auto &codecName : filterCodecNames) {
+        if (codecName == cricket::kVp8CodecName) {
+            payload_type = 100;
+        } else if (codecName == cricket::kVp9CodecName) {
+            payload_type = 102;
+        } else if (codecName == cricket::kH264CodecName) {
+            payload_type = 104;
+        }
         for (const auto &format : formats) {
             if (format.name != codecName) {
                 continue;
@@ -1663,8 +1670,10 @@ private:
 private:
     std::shared_ptr<Threads> _threads;
     ChannelId _ssrc;
+public:
     // Memory is managed by _channelManager
     cricket::VoiceChannel *_audioChannel = nullptr;
+private:
     // Memory is managed externally
     ChannelManager *_channelManager = nullptr;
     webrtc::Call *_call = nullptr;
@@ -1846,7 +1855,9 @@ private:
     std::vector<GroupJoinPayloadVideoSourceGroup> _ssrcGroups;
     std::unique_ptr<webrtc::VideoBitrateAllocatorFactory> _videoBitrateAllocatorFactory;
     // Memory is managed by _channelManager
+public:
     cricket::VideoChannel *_videoChannel;
+private:
     // Memory is managed externally
     ChannelManager *_channelManager = nullptr;
     webrtc::Call *_call = nullptr;
@@ -2424,6 +2435,75 @@ public:
 
             auto stats = strong->_call->GetStats();
             float sendBitrateKbps = ((float)stats.send_bandwidth_bps / 1000.0f);
+            {
+                static int ohosLatTick = 0;
+                if (++ohosLatTick % 5 == 0) {
+                    RTC_LOG(LS_ERROR) << "OHOS-LAT call: pacer_delay_ms=" << stats.pacer_delay_ms
+                                      << " send_bw_kbps=" << (stats.send_bandwidth_bps / 1000)
+                                      << " max_padding_kbps=" << (stats.max_padding_bitrate_bps / 1000)
+                                      << " recv_bw_kbps=" << (stats.recv_bandwidth_bps / 1000)
+                                      << " rtt_ms=" << stats.rtt_ms;
+                    if (strong->_outgoingVideoChannel) {
+                        cricket::VideoMediaSendInfo info;
+                        if (strong->_outgoingVideoChannel->video_media_send_channel()->GetStats(&info)) {
+                            for (const auto &snd : info.senders) {
+                                RTC_LOG(LS_ERROR) << "OHOS-LAT vsend ssrc=" << (snd.ssrcs().empty() ? 0 : snd.ssrcs()[0])
+                                                  << " " << snd.send_frame_width << "x" << snd.send_frame_height
+                                                  << " fps_in=" << snd.framerate_input << " fps_sent=" << snd.framerate_sent
+                                                  << " enc_ms=" << snd.avg_encode_ms << " enc_usage=" << snd.encode_usage_percent
+                                                  << " nominal_kbps=" << (snd.nominal_bitrate / 1000)
+                                                  << " adapt_reason=" << snd.adapt_reason
+                                                  << " frames_encoded=" << snd.frames_encoded;
+                            }
+                        }
+                    }
+                    for (const auto &it : strong->_incomingVideoChannels) {
+                        cricket::VideoMediaReceiveInfo info;
+                        if (it.second->_videoChannel && it.second->_videoChannel->video_media_receive_channel()->GetStats(&info)) {
+                            for (const auto &rcv : info.receivers) {
+                                RTC_LOG(LS_ERROR) << "OHOS-LAT vrecv " << it.second->endpointId()
+                                                  << " " << rcv.frame_width << "x" << rcv.frame_height
+                                                  << " fps_recv=" << rcv.framerate_received << " fps_dec=" << rcv.framerate_decoded
+                                                  << " fps_out=" << rcv.framerate_render_output
+                                                  << " target_ms=" << rcv.target_delay_ms << " current_ms=" << rcv.current_delay_ms
+                                                  << " jitter_buf_ms=" << rcv.jitter_buffer_ms << " min_playout_ms=" << rcv.min_playout_delay_ms
+                                                  << " decode_ms=" << rcv.decode_ms << " max_decode_ms=" << rcv.max_decode_ms
+                                                  << " render_ms=" << rcv.render_delay_ms
+                                                  << " dropped=" << rcv.frames_dropped << " freezes=" << rcv.freeze_count
+                                                  << " freeze_ms=" << rcv.total_freezes_duration_ms
+                                                  << " jb_emitted=" << rcv.jitter_buffer_emitted_count
+                                                  << " jb_delay_s=" << rcv.jitter_buffer_delay_seconds
+                                                  << " ssrc=" << (rcv.ssrcs().empty() ? 0 : rcv.ssrcs()[0])
+                                                  << " pkts=" << rcv.packets_received << " lost=" << rcv.packets_lost
+                                                  << " nack=" << rcv.nacks_sent.value_or(0) << " pli=" << rcv.plis_sent << " fir=" << rcv.firs_sent
+                                                  << " frames_recv=" << rcv.frames_received;
+                            }
+                        }
+                    }
+                    for (const auto &it : strong->_incomingAudioChannels) {
+                        cricket::VoiceMediaReceiveInfo info;
+                        if (it.second->_audioChannel && it.second->_audioChannel->voice_media_receive_channel()->GetStats(&info, false)) {
+                            for (const auto &rcv : info.receivers) {
+                                RTC_LOG(LS_ERROR) << "OHOS-LAT arecv ssrc=" << (rcv.ssrcs().empty() ? 0 : rcv.ssrcs()[0])
+                                                  << " jitter_buf_ms=" << rcv.jitter_buffer_ms
+                                                  << " preferred_ms=" << rcv.jitter_buffer_preferred_ms
+                                                  << " delay_est_ms=" << rcv.delay_estimate_ms
+                                                  << " jb_target_s=" << rcv.jitter_buffer_target_delay_seconds
+                                                  << " jb_delay_s=" << rcv.jitter_buffer_delay_seconds
+                                                  << " jb_emitted=" << rcv.jitter_buffer_emitted_count
+                                                  << " accel=" << rcv.removed_samples_for_acceleration
+                                                  << " decel=" << rcv.inserted_samples_for_deceleration
+                                                  << " concealed=" << rcv.concealed_samples
+                                                  << " jitter_ms=" << rcv.jitter_ms
+                                                  << " interruptions=" << rcv.interruption_count << "/" << rcv.total_interruption_duration_ms << "ms"
+                                                  << " rel_arrival_delay_s=" << rcv.relative_packet_arrival_delay_seconds
+                                                  << " pkts=" << rcv.packets_received << " lost=" << rcv.packets_lost
+                                                  << " flushes=" << rcv.jitter_buffer_flushes;
+                            }
+                        }
+                    }
+                }
+            }
 
             strong->_threads->getMediaThread()->PostTask([weak, sendBitrateKbps]() {
                 auto strong = weak.lock();
