@@ -37,7 +37,7 @@ MTProto 协议文档：https://core.telegram.org/mtproto
 
 1. 克隆源码：
    ```bash
-   git clone --recursive https://github.com/PoivronMax/Telegram-HMOS.git
+   git clone --recursive https://github.com/CJPLUK/Telegram-HMOS.git
    ```
    `--recursive` 会同时拉取通话引擎依赖的 Abseil 子模块。已经克隆过的仓库执行一次 `git submodule update --init --recursive`。
 2. 用 DevEco Studio 打开（Open，不要用 Import）项目目录，等待同步完成。

@@ -38,7 +38,7 @@ You will require:
 
 1. Clone the source code:
    ```bash
-   git clone --recursive https://github.com/PoivronMax/Telegram-HMOS.git
+   git clone --recursive https://github.com/CJPLUK/Telegram-HMOS.git
    ```
    `--recursive` fetches the Abseil submodule the call engine needs. If you already cloned without it, run `git submodule update --init --recursive`.
 2. Open the project directory in DevEco Studio (open it, do NOT import it) and let it sync.
