@@ -7,6 +7,8 @@ This repo contains the source code of an **unofficial** Telegram client for Harm
 
 The client talks to Telegram servers directly over MTProto, and its UI and behaviour follow [Telegram for iOS](https://github.com/TelegramMessenger/Telegram-iOS). It is not affiliated with, endorsed by or maintained by Telegram FZ-LLC.
 
+The results of testing the core scenarios against Telegram for iOS are in the [test report](docs/test-report/README.md).
+
 ## Creating your Telegram Application
 
 Telegram welcomes all developers to use its API and source code to create applications on its platform.
@@ -78,6 +80,7 @@ The application code and its runtime libraries are currently available for arm64
 
 ```
 AppScope/                 App-level configuration and icons
+docs/test-report/         Test report
 entry/
   src/main/cangjie/       Application code
     core/                 MTProto, storage, VoIP, theme

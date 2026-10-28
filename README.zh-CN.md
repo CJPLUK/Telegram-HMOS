@@ -7,6 +7,8 @@
 
 客户端直接通过 MTProto 与 Telegram 服务器通信，界面与交互对齐 [Telegram for iOS](https://github.com/TelegramMessenger/Telegram-iOS)。本项目与 Telegram FZ-LLC 无任何隶属、背书或维护关系。
 
+与 Telegram for iOS 对照的核心场景测试结果见[测试报告](docs/test-report/README.zh-CN.md)。
+
 ## 创建你自己的 Telegram 应用
 
 Telegram 欢迎所有开发者使用其 API 和源码在其平台上开发应用。目前 Telegram 对**所有开发者**有以下要求：
@@ -77,6 +79,7 @@ entry/src/main/cpp/third_party/prebuilt/build_all.sh     # 或单独运行 build
 
 ```
 AppScope/                 应用级配置与图标
+docs/test-report/         测试报告
 entry/
   src/main/cangjie/       应用代码
     core/                 MTProto、存储、VoIP、主题
