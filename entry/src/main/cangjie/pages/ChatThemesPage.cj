@@ -1438,8 +1438,7 @@ public class ChatThemesPage {
                     startIcon: @r(app.media.chatroom_ic_applytheme),
                     content: "Change Colors",
                     endIcon: "",
-                    labelInfo: "",
-                    builder: None<() -> Unit>
+                    labelInfo: ""
                 )
                     .onClick({ _ => routerPush("ThemeAccentColorPickerPage", "") })
             } else {
@@ -1452,8 +1451,7 @@ public class ChatThemesPage {
                     startIcon: @r(app.media.chatroom_ic_applytheme),
                     content: "Change Colors",
                     endIcon: "",
-                    labelInfo: "",
-                    builder: None<() -> Unit>
+                    labelInfo: ""
                 )
                     .onClick({ _ =>
                         this.menuVisibleIdx = -1
@@ -1463,16 +1461,14 @@ public class ChatThemesPage {
                     startIcon: @r(app.media.media_ic_share),
                     content: "Share",
                     endIcon: "",
-                    labelInfo: "",
-                    builder: None<() -> Unit>
+                    labelInfo: ""
                 )
                     .onClick({ _ => this.shareCloudTheme() })
                 MenuItem(
                     startIcon: @r(app.media.chatroom_ic_removetheme),
                     content: "Remove",
                     endIcon: "",
-                    labelInfo: "",
-                    builder: None<() -> Unit>
+                    labelInfo: ""
                 )
                     .contentFontColor(0xFFFF3B30)
                     .onClick({ _ => this.confirmRemoveCloudTheme() })

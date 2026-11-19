@@ -706,8 +706,7 @@ public class SettingsPage {
                 startIcon: "",
                 content: "Log Out",
                 endIcon: "",
-                labelInfo: "",
-                builder: None<() -> Unit>
+                labelInfo: ""
             )
                 .contentFontColor(0xFFFF3B30)
                 .onClick({ _ => this.requestSelectedAccountLogout() })

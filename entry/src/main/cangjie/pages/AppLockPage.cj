@@ -1336,15 +1336,15 @@ public class AppLockPage {
     @Builder
     func autoLockMenuContent() {
         Menu {
-            MenuItem(startIcon: "", content: "Disabled", endIcon: this.autoLockCheckIcon(0), labelInfo: "", builder: None<() -> Unit>)
+            MenuItem(startIcon: "", content: "Disabled", endIcon: this.autoLockCheckIcon(0), labelInfo: "")
                 .onClick({ _ => this.saveAutoLock(0) })
-            MenuItem(startIcon: "", content: "If away for 1 min", endIcon: this.autoLockCheckIcon(1), labelInfo: "", builder: None<() -> Unit>)
+            MenuItem(startIcon: "", content: "If away for 1 min", endIcon: this.autoLockCheckIcon(1), labelInfo: "")
                 .onClick({ _ => this.saveAutoLock(1) })
-            MenuItem(startIcon: "", content: "If away for 5 min", endIcon: this.autoLockCheckIcon(2), labelInfo: "", builder: None<() -> Unit>)
+            MenuItem(startIcon: "", content: "If away for 5 min", endIcon: this.autoLockCheckIcon(2), labelInfo: "")
                 .onClick({ _ => this.saveAutoLock(2) })
-            MenuItem(startIcon: "", content: "If away for 1 hour", endIcon: this.autoLockCheckIcon(3), labelInfo: "", builder: None<() -> Unit>)
+            MenuItem(startIcon: "", content: "If away for 1 hour", endIcon: this.autoLockCheckIcon(3), labelInfo: "")
                 .onClick({ _ => this.saveAutoLock(3) })
-            MenuItem(startIcon: "", content: "If away for 5 hours", endIcon: this.autoLockCheckIcon(4), labelInfo: "", builder: None<() -> Unit>)
+            MenuItem(startIcon: "", content: "If away for 5 hours", endIcon: this.autoLockCheckIcon(4), labelInfo: "")
                 .onClick({ _ => this.saveAutoLock(4) })
         }
     }

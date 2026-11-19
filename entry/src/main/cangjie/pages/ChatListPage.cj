@@ -3930,20 +3930,6 @@ public class ChatListPage {
                                 // 归档内没有左侧动作（iOS leftRevealOptions 仅根列表），归档态不挂 start
                                 // builder：此前挂的是渲染为空的 builder，本绑定下空 builder 会塌成
                                 // "宽度=剩余空间"的空块（见下方注释的真机隔离实验），会干扰行布局。
-                                start: if (this.currentFolderIdMirror == 1) { None<CustomBuilder> } else { Some<CustomBuilder>({ =>
-                                    // TC-0012 深层修复（第二轮，真机隔离实验证实）：
-                                    // 真机 dumpLayout + hilog swiperIndex 逐步隔离实验证实，ArkUI-CJ 当前
-                                    // 版本的 ListItem.swipeAction(start:/end:) CustomBuilder 插槽内，任何
-                                    // 顶层为容器组件（Row/Column/Flex）且带子节点的写法都会坍缩为 0 子节点
-                                    // 空块（宽度回退为剩余空间），与 start/end 位置、内部 if/else 写法、
-                                    // 是否显式声明宽度均无关——仅有"顶层为单个叶子组件（无子节点，如
-                                    // Text/Button，内容为组件自身 text 属性）"才能正确渲染（详见
-                                    // featureX.md Hand-off，含真机隔离实验完整记录）。
-                                    // 已改为叶子 Text 单按钮：保留原「标记已读/未读」单一动作语义。
-                                    // iOS leftRevealOptions（ChatListItem.swift:881-906）：根列表右滑
-                                    // Read/Unread + Pin/Unpin；归档内没有左侧动作。与 end 侧同一 bind 模板渲染。
-                                    bind(this.buildSwipeStartPanel, this)()
-                                }) },
                                 end: { =>
                                     // TC-0452 round2 返修（D-135 更正后的修复模板，同 SettingsPage.cj/
                                     // DevicesPage.cj 等五处先例）：这个 CustomBuilder 体在 ForEach 逐行

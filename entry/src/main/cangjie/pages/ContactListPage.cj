@@ -1962,7 +1962,7 @@ public class ContactListPage {
                                 if (item.contact.isSome()) {
                                     this.buildContactRow(item.contact.getOrThrow())
                                 } else {
-                                    ListItem { Blank().width(1).height(1) }
+                                    ListItem { Row { Blank().width(1).height(1) } }
                                 }
                             }
                         })

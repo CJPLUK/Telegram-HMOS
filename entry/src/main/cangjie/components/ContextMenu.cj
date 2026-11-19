@@ -244,8 +244,7 @@ public func buildContextMenuItems(items: Array<ContextMenuItem>): Unit {
                     startIcon: item.nativeMenuStartIcon(),
                     content: item.nativeMenuContent(),
                     endIcon: "",
-                    labelInfo: "",
-                    builder: None<() -> Unit>
+                    labelInfo: ""
                 )
                     .contentFontColor(Color(item.resolveContentColor()))
                     .enabled(item.enabled)
